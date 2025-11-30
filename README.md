@@ -2,6 +2,8 @@
 
 A web application that detects deepfake images using NVIDIA's AI detection API. Built with React frontend and AWS serverless backend.
 
+Demo Link: https://doe96w0vtmfnu.cloudfront.net
+
 ## What it does
 
 Upload an image and get instant analysis showing whether it's authentic or artificially generated. The system uses a deepfake detection model to analyze facial features and provides confidence scores.
