@@ -53,3 +53,4 @@ class FrontendStack(Stack):
         )
         
         CfnOutput(self, "CloudFrontURL", value=distribution.distribution_domain_name)
+        CfnOutput(self, "CloudFrontDistributionId", value=distribution.distribution_id)

@@ -3,12 +3,11 @@ b'!!                                                                            
 b'!!  Node 23 is end-of-life and not supported anymore by this software since 2025-12-01.  !!\n'
 b'!!  Please upgrade to a supported node version as soon as possible.                      !!\n'
 b'!!                                                                                       !!\n'
-b'!!  This software is currently running on node v23.7.0.                                  !!\n'
+b'!!  This software is currently running on node v23.11.0.                                 !!\n'
 b'!!  As of the current release of this software, supported node releases are:             !!\n'
 b'!!  - ^24.0.0 (Planned end-of-life: 2028-04-30)                                          !!\n'
 b'!!  - ^22.0.0 (Planned end-of-life: 2027-04-30)                                          !!\n'
 b'!!  - ^20.0.0 (Planned end-of-life: 2026-04-30)                                          !!\n'
-b'!!  - ^18.0.0 (Planned end-of-life: 2025-04-30) [DEPRECATED]                             !!\n'
 b'!!                                                                                       !!\n'
 b'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n'
 [WARNING] aws-cdk-lib.aws_cloudfront_origins.S3Origin is deprecated.
@@ -18,84 +17,163 @@ b'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   Use `S3BucketOrigin` or `S3StaticWebsiteOrigin` instead.
   This API will be removed in the next major release.
 
-✨  Synthesis time: 7.07s
+✨  Synthesis time: 3.59s
 
 S3Stack
-S3Stack: deploying... [1/5]
+S3Stack: deploying... [1/6]
 
  ✅  S3Stack (no changes)
 
-✨  Deployment time: 0.71s
+✨  Deployment time: 0.91s
 
 Outputs:
-S3Stack.ExportsOutputFnGetAttImageBucket97210811ArnBE413D3E = arn:aws:s3:::s3stack-imagebucket97210811-ybqw0yyd9zdx
-S3Stack.ExportsOutputRefImageBucket97210811FA5BB109 = s3stack-imagebucket97210811-ybqw0yyd9zdx
+S3Stack.ExportsOutputFnGetAttImageBucket97210811ArnBE413D3E = arn:aws:s3:::s3stack-imagebucket97210811-4ooe5g5dmtqn
+S3Stack.ExportsOutputRefImageBucket97210811FA5BB109 = s3stack-imagebucket97210811-4ooe5g5dmtqn
 Stack ARN:
-arn:aws:cloudformation:us-east-1:891612550310:stack/S3Stack/fa521070-c679-11f0-a9f6-0e24b7446e31
+arn:aws:cloudformation:us-east-1:992382701391:stack/S3Stack/fa0fc5f0-ce3d-11f0-952f-0e930cf9f009
 
-✨  Total time: 7.79s
+✨  Total time: 4.5s
 
 DynamoDBStack
-DynamoDBStack: deploying... [2/5]
+DynamoDBStack: deploying... [2/6]
 
  ✅  DynamoDBStack (no changes)
 
-✨  Deployment time: 0.3s
+✨  Deployment time: 0.44s
 
 Stack ARN:
-arn:aws:cloudformation:us-east-1:891612550310:stack/DynamoDBStack/ebfd3db0-c679-11f0-ac45-120567f4b1f1
+arn:aws:cloudformation:us-east-1:992382701391:stack/DynamoDBStack/0af44440-ce3e-11f0-bb40-0affc161647d
 
-✨  Total time: 7.37s
+✨  Total time: 4.03s
 
 SecretsStack
-SecretsStack: deploying... [3/5]
+SecretsStack: deploying... [3/6]
 
  ✅  SecretsStack (no changes)
 
-✨  Deployment time: 0.31s
+✨  Deployment time: 0.44s
 
 Outputs:
-SecretsStack.ExportsOutputRefApiKeySecretF1B08E61F242DC81 = arn:aws:secretsmanager:us-east-1:891612550310:secret:deepfake/api-key-rdl33D
+SecretsStack.ExportsOutputRefApiKeySecretF1B08E61F242DC81 = arn:aws:secretsmanager:us-east-1:992382701391:secret:deepfake/api-key-ZRMPrK
 Stack ARN:
-arn:aws:cloudformation:us-east-1:891612550310:stack/SecretsStack/f31f1b90-c679-11f0-b401-12b2ccca489f
+arn:aws:cloudformation:us-east-1:992382701391:stack/SecretsStack/1279c5f0-ce3e-11f0-b661-0e124f123293
 
-✨  Total time: 7.39s
+✨  Total time: 4.03s
 
 LambdaStack
-LambdaStack: deploying... [4/5]
-LambdaStack: creating CloudFormation changeset...
-LambdaStack | 0/4 | 9:18:19 PM | UPDATE_IN_PROGRESS   | AWS::CloudFormation::Stack | LambdaStack User Initiated
-LambdaStack | 0/4 | 9:18:22 PM | UPDATE_IN_PROGRESS   | AWS::CDK::Metadata         | CDKMetadata/Default (CDKMetadata) 
-LambdaStack | 0/4 | 9:18:22 PM | UPDATE_IN_PROGRESS   | AWS::Lambda::Function      | upload_lambda (uploadlambdaC74011FD) 
-LambdaStack | 1/4 | 9:18:23 PM | UPDATE_COMPLETE      | AWS::CDK::Metadata         | CDKMetadata/Default (CDKMetadata) 
-LambdaStack | 2/4 | 9:18:36 PM | UPDATE_COMPLETE      | AWS::Lambda::Function      | upload_lambda (uploadlambdaC74011FD) 
-LambdaStack | 3/4 | 9:18:38 PM | UPDATE_COMPLETE_CLEA | AWS::CloudFormation::Stack | LambdaStack 
-LambdaStack | 4/4 | 9:18:39 PM | UPDATE_COMPLETE      | AWS::CloudFormation::Stack | LambdaStack 
+LambdaStack: deploying... [4/6]
 
- ✅  LambdaStack
+ ✅  LambdaStack (no changes)
 
-✨  Deployment time: 33.18s
+✨  Deployment time: 0.68s
 
 Outputs:
-LambdaStack.ExportsOutputFnGetAttuploadlambdaC74011FDArnCC40691E = arn:aws:lambda:us-east-1:891612550310:function:deepfake_upload_lambda_function
+LambdaStack.ExportsOutputFnGetAttdashboardlambda64490F37ArnAA9AC235 = arn:aws:lambda:us-east-1:992382701391:function:deepfake_dashboard_lambda_function
+LambdaStack.ExportsOutputFnGetAttuploadlambdaC74011FDArnCC40691E = arn:aws:lambda:us-east-1:992382701391:function:deepfake_upload_lambda_function
+LambdaStack.ExportsOutputRefuploadlambdaC74011FD0EFD68B4 = deepfake_upload_lambda_function
 Stack ARN:
-arn:aws:cloudformation:us-east-1:891612550310:stack/LambdaStack/10fad870-c67a-11f0-9536-0affed40063f
+arn:aws:cloudformation:us-east-1:992382701391:stack/LambdaStack/c3cb7330-ce3e-11f0-9035-0ebf42890811
 
-✨  Total time: 40.25s
+✨  Total time: 4.27s
 
 ApiGatewayStack
-ApiGatewayStack: deploying... [5/5]
+ApiGatewayStack: deploying... [5/6]
 
  ✅  ApiGatewayStack (no changes)
 
-✨  Deployment time: 0.27s
+✨  Deployment time: 0.5s
 
 Outputs:
-ApiGatewayStack.DeepFakeApiEndpoint6230FF63 = https://9bukppn0h7.execute-api.us-east-1.amazonaws.com/prod/
+ApiGatewayStack.ApiEndpoint = https://zxnu88ex8e.execute-api.us-east-1.amazonaws.com/prod/
+ApiGatewayStack.DeepFakeApiEndpoint6230FF63 = https://zxnu88ex8e.execute-api.us-east-1.amazonaws.com/prod/
 Stack ARN:
-arn:aws:cloudformation:us-east-1:891612550310:stack/ApiGatewayStack/3a7bff80-c67a-11f0-9626-12588d727baf
+arn:aws:cloudformation:us-east-1:992382701391:stack/ApiGatewayStack/f2b15ed0-ce3e-11f0-938b-0afffba4f579
 
-✨  Total time: 7.35s
+✨  Total time: 4.08s
+
+DashboardStack
+DashboardStack: deploying... [6/6]
+
+ ✅  DashboardStack (no changes)
+
+✨  Deployment time: 0.38s
+
+Outputs:
+DashboardStack.DashboardURL = https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards:name=DeepFake-Monitoring-Dashboard
+Stack ARN:
+arn:aws:cloudformation:us-east-1:992382701391:stack/DashboardStack/e81638b0-ce3e-11f0-8a83-0e36821189e1
+
+✨  Total time: 3.96s
+
+
+NOTICES         (What's this? https://github.com/aws/aws-cdk/wiki/CLI-Notices)
+
+34892	CDK CLI will collect telemetry data on command usage starting at version 2.1100.0 (unless opted out)
+
+	Overview: We do not collect customer content and we anonymize the
+	          telemetry we do collect. See the attached issue for more
+	          information on what data is collected, why, and how to
+	          opt-out. Telemetry will NOT be collected for any CDK CLI
+	          version prior to version 2.1100.0 - regardless of
+	          opt-in/out. You can also preview the telemetry we will start
+	          collecting by logging it to a local file, by adding
+	          `--unstable=telemetry --telemetry-file=my/local/file` to any
+	          `cdk` command.
+
+	Affected versions: cli: ^2.0.0
+
+	More information at: https://github.com/aws/aws-cdk/issues/34892
+
+
+If you don’t want to see a notice anymore, use "cdk acknowledge <id>". For example, "cdk acknowledge 34892".
+b'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n'
+b'!!                                                                                       !!\n'
+b'!!  Node 23 is end-of-life and not supported anymore by this software since 2025-12-01.  !!\n'
+b'!!  Please upgrade to a supported node version as soon as possible.                      !!\n'
+b'!!                                                                                       !!\n'
+b'!!  This software is currently running on node v23.11.0.                                 !!\n'
+b'!!  As of the current release of this software, supported node releases are:             !!\n'
+b'!!  - ^24.0.0 (Planned end-of-life: 2028-04-30)                                          !!\n'
+b'!!  - ^22.0.0 (Planned end-of-life: 2027-04-30)                                          !!\n'
+b'!!  - ^20.0.0 (Planned end-of-life: 2026-04-30)                                          !!\n'
+b'!!                                                                                       !!\n'
+b'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n'
+[WARNING] aws-cdk-lib.aws_cloudfront_origins.S3Origin is deprecated.
+  Use `S3BucketOrigin` or `S3StaticWebsiteOrigin` instead.
+  This API will be removed in the next major release.
+[WARNING] aws-cdk-lib.aws_cloudfront_origins.S3Origin#bind is deprecated.
+  Use `S3BucketOrigin` or `S3StaticWebsiteOrigin` instead.
+  This API will be removed in the next major release.
+
+✨  Synthesis time: 3.42s
+
+FrontendStack: start: Building Deploy-the-front-end/Asset1
+FrontendStack: success: Built Deploy-the-front-end/Asset1
+FrontendStack: start: Building FrontendStack Template
+FrontendStack: success: Built FrontendStack Template
+FrontendStack: start: Publishing FrontendStack Template (current_account-current_region-64d471f7)
+FrontendStack: start: Publishing Deploy-the-front-end/Asset1 (current_account-current_region-b87230d8)
+FrontendStack: success: Published FrontendStack Template (current_account-current_region-64d471f7)
+FrontendStack: success: Published Deploy-the-front-end/Asset1 (current_account-current_region-b87230d8)
+FrontendStack: deploying... [1/1]
+FrontendStack: creating CloudFormation changeset...
+FrontendStack | 0/3 | 7:21:15 PM | UPDATE_IN_PROGRESS   | AWS::CloudFormation::Stack                      | FrontendStack User Initiated
+FrontendStack | 0/3 | 7:21:18 PM | UPDATE_IN_PROGRESS   | Custom::CDKBucketDeployment                     | Deploy-the-front-end/CustomResource/Default (DeploythefrontendCustomResource49FE0B4C) 
+FrontendStack | 1/3 | 7:21:49 PM | UPDATE_COMPLETE      | Custom::CDKBucketDeployment                     | Deploy-the-front-end/CustomResource/Default (DeploythefrontendCustomResource49FE0B4C) 
+FrontendStack | 2/3 | 7:21:51 PM | UPDATE_COMPLETE_CLEA | AWS::CloudFormation::Stack                      | FrontendStack 
+FrontendStack | 3/3 | 7:21:52 PM | UPDATE_COMPLETE      | AWS::CloudFormation::Stack                      | FrontendStack 
+
+ ✅  FrontendStack
+
+✨  Deployment time: 54.83s
+
+Outputs:
+FrontendStack.CloudFrontDistributionId = E18Y9VUTERFSCV
+FrontendStack.CloudFrontURL = d2c3fs029gud82.cloudfront.net
+Stack ARN:
+arn:aws:cloudformation:us-east-1:992382701391:stack/FrontendStack/0b2c75d0-ce3f-11f0-b4cd-0e4e52b481b3
+
+✨  Total time: 58.25s
 
 
 NOTICES         (What's this? https://github.com/aws/aws-cdk/wiki/CLI-Notices)

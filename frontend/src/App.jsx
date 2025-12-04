@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { FiShield, FiCheck, FiX, FiLoader, FiFolder, FiEye } from 'react-icons/fi'
+import { FiShield, FiCheck, FiX, FiLoader, FiFolder, FiEye, FiBarChart2, FiGithub, FiExternalLink } from 'react-icons/fi'
 import './App.css'
 
 function App() {
@@ -8,6 +8,57 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+  const [dashboardUrl, setDashboardUrl] = useState(null)
+  const [githubRepo, setGithubRepo] = useState(null)
+
+  useEffect(() => {
+    // Fetch dashboard and GitHub repo URLs
+    const fetchLinks = async () => {
+      try {
+        const apiEndpoint = import.meta.env.VITE_API_ENDPOINT
+        if (apiEndpoint) {
+          const response = await axios.get(`${apiEndpoint}/dashboard`)
+          if (response.data) {
+            // Handle both string and object responses
+            let data = response.data
+            if (typeof data === 'string') {
+              try {
+                data = JSON.parse(data)
+              } catch (e) {
+                // If parsing fails, log error and try to continue with original data
+                console.warn('Failed to parse response data as JSON:', e)
+                // If it's already a string, try to check if it might be a wrapped response
+                // Otherwise, set data to null to avoid further errors
+                data = null
+              }
+            }
+            // Handle nested body structure from API Gateway
+            if (data && data.body) {
+              if (typeof data.body === 'string') {
+                try {
+                  data = JSON.parse(data.body)
+                } catch (e) {
+                  console.warn('Failed to parse body as JSON:', e)
+                  data = null
+                }
+              } else {
+                data = data.body
+              }
+            }
+            if (data && data.dashboard_url && data.github_repo) {
+              setDashboardUrl(data.dashboard_url)
+              setGithubRepo(data.github_repo)
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch dashboard info:', error)
+        // Set default GitHub repo if API fails
+        setGithubRepo('https://github.com/yourusername/deepfake-detection')
+      }
+    }
+    fetchLinks()
+  }, [])
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0]
@@ -28,7 +79,7 @@ function App() {
     
     try {
       const base64 = image.split(',')[1]
-      const response = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}upload`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/upload`, {
         image: base64
       })
       
@@ -43,6 +94,42 @@ function App() {
 
   return (
     <div className="app">
+      {/* Banner Section */}
+      <div className="banner-container">
+        {dashboardUrl && (
+          <a 
+            href={dashboardUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="banner-link"
+          >
+            <div className="banner dashboard-banner">
+              <div className="banner-content">
+                <FiBarChart2 className="banner-icon" />
+                <span>Monitoring Dashboard</span>
+              </div>
+              <FiExternalLink className="external-icon" />
+            </div>
+          </a>
+        )}
+        {githubRepo && (
+          <a 
+            href={githubRepo} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="banner-link"
+          >
+            <div className="banner github-banner">
+              <div className="banner-content">
+                <FiGithub className="banner-icon" />
+                <span>GitHub Repository</span>
+              </div>
+              <FiExternalLink className="external-icon" />
+            </div>
+          </a>
+        )}
+      </div>
+
       <div className="header">
         <FiShield className="header-icon" />
         <h1>Deepfake Detection</h1>

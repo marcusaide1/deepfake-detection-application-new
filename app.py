@@ -8,6 +8,7 @@ from stacks.apigateway_satck import ApiGatewayStack
 from stacks.dynamodb_stack import DynamoDBStack
 from stacks.frontend_stack import FrontendStack
 from stacks.secrets_stack import SecretsStack
+from stacks.dashboard_stack import DashboardStack
 
 app = cdk.App()
 
@@ -15,7 +16,8 @@ s3_stack = S3Stack(app, "S3Stack")
 dynamodb_stack = DynamoDBStack(app, "DynamoDBStack")
 secrets_stack = SecretsStack(app, "SecretsStack")
 lambda_stack = LambdaStack(app, "LambdaStack", image_bucket=s3_stack.image_bucket, api_secret=secrets_stack.api_key_secret)
-apigateway_stack = ApiGatewayStack(app, "ApiGatewayStack", upload_lambda=lambda_stack.upload_lambda)
+apigateway_stack = ApiGatewayStack(app, "ApiGatewayStack", upload_lambda=lambda_stack.upload_lambda, dashboard_lambda=lambda_stack.dashboard_lambda)
+dashboard_stack = DashboardStack(app, "DashboardStack", upload_lambda=lambda_stack.upload_lambda, api_gateway=apigateway_stack.api)
 frontend_stack = FrontendStack(app, "FrontendStack")
 
 app.synth()
